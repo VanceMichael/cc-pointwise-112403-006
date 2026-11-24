@@ -1,0 +1,28 @@
+{
+  "name": "逆回购操作公告与交易商申报回执核验台",
+  "material_nature": "本地合成演练资料",
+  "description": "仅供本地开发和回归，记录不代表真实机构、交易或观测。",
+  "records": {
+    "operations": [
+      {
+        "date": "2026-11-24",
+        "kind": "overnight-reverse-repo",
+        "amount": 5160,
+        "allocation": "full-demand"
+      }
+    ],
+    "bids": [
+      {
+        "dealer": "D-3",
+        "amount": 120
+      }
+    ],
+    "settlements": [
+      {
+        "dealer": "D-3",
+        "state": "pending"
+      }
+    ],
+    "notes": "合成公告、申报和结算回执。"
+  }
+}
