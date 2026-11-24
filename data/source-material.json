@@ -1,28 +1,95 @@
 {
-  "name": "逆回购操作公告与交易商申报回执核验台",
+  "name": "公开市场操作申报分配与结算回执采集",
   "material_nature": "本地合成演练资料",
-  "description": "仅供本地开发和回归，记录不代表真实机构、交易或观测。",
-  "records": {
-    "operations": [
-      {
-        "date": "2026-11-24",
-        "kind": "overnight-reverse-repo",
-        "amount": 5160,
-        "allocation": "full-demand"
-      }
-    ],
-    "bids": [
-      {
-        "dealer": "D-3",
-        "amount": 120
-      }
-    ],
-    "settlements": [
-      {
-        "dealer": "D-3",
-        "state": "pending"
-      }
-    ],
-    "notes": "合成公告、申报和结算回执。"
-  }
+  "description": "资料中的机构、项目、交易、合同和回执均为虚构，仅用于本地开发与回归。",
+  "feeds": [
+    {
+      "id": "operations",
+      "label": "操作公告",
+      "records": [
+        {
+          "operation": "OMO-1124-ON",
+          "date": "2026-11-24",
+          "kind": "逆回购",
+          "term": "隔夜",
+          "announced_amount": "5160亿元",
+          "method": "利率招标"
+        },
+        {
+          "operation": "OMO-1124-7D",
+          "date": "2026-11-24",
+          "kind": "逆回购",
+          "term": "7天",
+          "announced_amount": "2400亿元",
+          "method": "利率招标"
+        }
+      ]
+    },
+    {
+      "id": "dealer",
+      "label": "交易商申报与官方获配",
+      "records": [
+        {
+          "operation": "OMO-1124-ON",
+          "dealer": "D-3",
+          "bid_revision": 1,
+          "bid": "120亿元",
+          "state": "submitted"
+        },
+        {
+          "operation": "OMO-1124-ON",
+          "dealer": "D-3",
+          "bid_revision": 2,
+          "bid": "100亿元",
+          "state": "corrected"
+        },
+        {
+          "operation": "OMO-1124-ON",
+          "dealer": "D-8",
+          "bid_revision": 1,
+          "bid": "90亿元",
+          "state": "submitted"
+        },
+        {
+          "operation": "OMO-1124-ON",
+          "dealer": "D-3",
+          "allocated": "100亿元",
+          "source": "allocation-N4"
+        },
+        {
+          "operation": "OMO-1124-ON",
+          "dealer": "D-8",
+          "allocated": "90亿元",
+          "source": "allocation-N4"
+        }
+      ]
+    },
+    {
+      "id": "settlement",
+      "label": "资金结算回执",
+      "records": [
+        {
+          "operation": "OMO-1124-ON",
+          "dealer": "D-3",
+          "receipt": "ST-71",
+          "amount": "100亿元",
+          "state": "settled"
+        },
+        {
+          "operation": "OMO-1124-ON",
+          "dealer": "D-8",
+          "receipt": "ST-72",
+          "amount": "80亿元",
+          "state": "partial"
+        },
+        {
+          "operation": "OMO-1124-7D",
+          "dealer": "D-3",
+          "receipt": null,
+          "amount": null,
+          "state": "not-arrived"
+        }
+      ]
+    }
+  ]
 }
